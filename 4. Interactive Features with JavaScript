@@ -1,0 +1,106 @@
+Experiment 4: Interactive Features with JavaScript.
+
+Aim:
+Write a script that:
+a) Displays a welcome message using a popup box when the page loads.
+b) Implements a simple form validation to ensure all required fields are filled and a valid
+email address is entered.
+
+Tools Used:
+• Text Editor: Any text editor (e.g., Visual Studio Code, Sublime Text, Notepad++) to
+write HTML and JavaScript code.
+• Web Browser: Google Chrome, Mozilla Firefox, or any modern browser to view the
+output.
+
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form Validation and Welcome Popup</title>
+   <script>
+      // Function to show the welcome popup when the page loads
+      window.onload = function () {
+         alert("Welcome to our website!");
+      }
+      // Form validation function
+      function validateForm() {
+         // Get the form values
+         var name = document.getElementById("name").value;
+         var email = document.getElementById("email").value;
+         var message = document.getElementById("message").value;
+         // Validate name (must not be empty)
+         if (name == "") {
+            alert("Name is required!");
+            return false;
+         }
+         // Validate email (must be in a valid email format)
+         var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+         if (email == "") {
+            alert("Email is required!");
+            return false;
+         } else if (!email.match(emailPattern)) {
+            alert("Please enter a valid email address!");
+            return false;
+         }
+         // Validate message (must not be empty)
+         if (message == "") {
+            alert("Message is required!");
+            return false;
+         }
+         // If all validations pass, return true to submit the form
+         alert("Form submitted successfully!");
+         return true;
+      }
+   </script>
+</head>
+<body>
+   <h1>Contact Form</h1>
+   <form onsubmit="return validateForm()">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" required></textarea><br><br>
+      <input type="submit" value="Submit">
+   </form>
+</body>
+</html>
+
+OUTPUT:
+Contact Form
+Name:
++----------------+
+|                |
+|                |
++----------------+
+Email:
++----------------+
+|                |
+|                |
++----------------+
+Message:
++----------------+
+|                |
+|                |
+|                |
++----------------+
++--------+
+| SUBMIT |
++--------+
+
+Learning Outcomes:
+1. Understand how to use JavaScript for creating interactive user interfaces.
+2. Learn how to display popup messages using the alert() function.
+3. Gain experience in implementing form validation with JavaScript to check required
+fields and validate data like email addresses.
+4. Improve your ability to manage user interactions on a webpage using JavaScript
+
+Conclusion:
+This project demonstrated how to use JavaScript to create interactive features for web
+pages. By learning how to display welcome messages using popups and validate form inputs,
+students gain valuable skills for improving the functionality and usability of websites.
+JavaScript is an essential tool for adding interactivity to a webpage, and this exercise forms
+the foundation for more advanced web development topics.

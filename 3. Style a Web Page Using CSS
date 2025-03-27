@@ -1,0 +1,102 @@
+Experiment 3: Style a Web Page Using CSS.
+
+Aim:
+Use inline, internal, and external CSS to:
+a) Change the background color or add a background image to the web page.
+b) Customize text styles, such as font size, color, and spacing.
+
+Tools Used:
+• Text Editor: Any text editor (e.g., Visual Studio Code, Sublime Text, Notepad++) to
+write the HTML and CSS code.
+• Web Browser: Google Chrome, Mozilla Firefox, or any modern browser to view the
+output.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS Styling Example</title>
+   <!-- Internal CSS -->
+   <style>
+      /* Background color and image */
+      body {
+         background-color: lightblue;
+         /* Change background color */
+         background-image: url('background-image.jpg');
+         /* Add a background image */
+         background-size: cover;
+         /* Ensure the background image covers the entire page */
+         background-position: center center;
+         /* Center the background image */
+      }
+      /* Customize text styles */
+      h1 {
+         font-size: 36px;
+         color: darkblue;
+         text-align: center;
+         letter-spacing: 2px;
+      }
+      p {
+         font-size: 18px;
+         color: #333;
+         line-height: 1.6;
+         text-align: justify;
+         padding: 10px;
+      }
+      /* Specific class for the paragraph text */
+      .special-text {
+         font-size: 20px;
+         color: #ff6347;
+         /* Tomato color */
+         text-transform: uppercase;
+         font-weight: bold;
+      }
+   </style>
+   <!-- External CSS (Link to external stylesheet) -->
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Inline CSS -->
+   <h1 style="color: green; text-align: center; font-family: Arial, sans-serif;">Welcome to My Web Page</h1>
+   <p>This is a simple paragraph of text explaining the content of the page. The text is styled using internal CSS
+      and inline CSS.</p>
+   <!-- Using the class defined in internal CSS -->
+   <p class="special-text">This is a special paragraph with a different text style!</p>
+   <p>Try changing the background color, or add a background image using different methods of CSS.</p>
+</body>
+</html>
+
+EXTERNAL CSS CODE:
+STYLES.CSS
+/* External CSS example */
+body {
+font-family: 'Arial', sans-serif;
+}
+h1 {
+color: navy;
+}
+p {
+color: #555;
+}
+
+Output:
+Welcome to My Web Page(H3)
+This is a simple paragraph of text explaining the content of the page. The text is styled using internal CSS and inline CSS.
+
+This is a special paragraph with a different text style!(H2)
+
+Try changing the background color, or add a background image using different methods of CSS.
+
+Learning Outcomes:
+1. Understanding the difference between inline, internal, and external CSS.
+2. Ability to customize various text styles and backgrounds using CSS.
+3. Ability to structure a webpage’s design using different CSS methods.
+4. Gaining practical experience in styling text and page elements for better readability
+and user experience.
+
+Conclusion:
+This project demonstrated the application of inline, internal, and external CSS to style a
+simple webpage. By changing the background color, adding text styling, and experimenting
+with different methods of applying CSS, students can enhance the visual appeal of a
+webpage. These skills are essential for building visually engaging websites

@@ -1,0 +1,67 @@
+Experiment 2: Add Images and Links.
+
+Aim:
+a) Use an image map to make specific areas of the image clickable.
+b) Add hyperlinks to external websites and within the same document (anchors).
+
+Tools Used:
+• Text Editor: Any text editor (e.g., Visual Studio Code, Sublime Text, Notepad++) to
+write the HTML code.
+• Web Browser: Google Chrome, Mozilla Firefox, or any modern browser to view the
+output.
+
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Image Map and Links Example</title>
+</head>
+<body>
+   <h1>Image Map and Hyperlinks Example</h1>
+   <!-- External Link -->
+   <p>Click the link to visit <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
+      (External Website).</p>
+   <!-- Internal Link (Anchor within the document) -->
+   <p>Click to go to the <a href="#section2">Second Section</a> within this page.</p>
+   <h2>Image Map Example:</h2>
+   <img src="example-image.jpg" usemap="#image-map" alt="Example Image" width="500">
+   <!-- Image Map Definition -->
+   <map name="image-map">
+      <!-- Coordinates for the clickable area -->
+      <area shape="rect" coords="34,44,270,350" alt="Wikipedia" href="https://www.wikipedia.org" target="_blank">
+      <area shape="circle" coords="400,150,40" alt="Google" href="https://www.google.com" target="_blank">
+      <area shape="poly" coords="180,200,250,250,200,300" alt="Anchor Link" href="#section2">
+   </map>
+   <h2 id="section2">Second Section</h2>
+   <p>This is the second section of the page. Clicking the anchor link above will take you here.</p>
+   <p>More content goes here...</p>
+</body>
+</html>
+
+OUTPUT:
+Image Map and Hyperlinks Example(H3)
+Click the link to visit Wikipedia (External Website).
+
+Click to go to the Second Section within this page.
+
+Image Map Example:(H2)
+Example Image
+
+Second Section(H2)
+This is the second section of the page. Clicking the anchor link above will take you here.
+
+More content goes here...
+
+Learning Outcomes:
+1. Understand how to create interactive images using image maps.
+2. Learn how to create internal navigation using anchors and external links using the anchor
+(<a>) tag.
+3. Gain experience in integrating images and links to make a webpage more dynamic and
+interactive.
+
+Conclusion:
+1. Understand basic HTML elements and their usage in web design.
+2. Ability to create interactive and engaging web pages with images and links.
+3. Learn how to implement practical web design elements like image maps and anchor links
