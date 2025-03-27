@@ -1,0 +1,122 @@
+Experiment 6: Create and Validate an XML Document.
+
+Aim:
+a)Design an XML document to store data about books (e.g., title, author, genre, and price).
+b) Write a DTD (either internal or external) to define the structure of the XML document and
+validate it against the DTD.
+
+Tools Used:
+• Text Editor: Any text editor (e.g., Visual Studio Code, Sublime Text, Notepad++) to
+write the XML and DTD files.
+• Web Browser: Modern web browsers (Google Chrome, Mozilla Firefox, etc.) to test
+XML validation.
+• XML Validator: Use an online XML validator tool (like XML Validation) to validate the
+XML document against the DTD.
+
+Code:
+XML Document to Store Data About Books:
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+   <book>
+      <title>Harry Potter and the Sorcerer's Stone</title>
+      <author>J.K. Rowling</author>
+      <genre>Fantasy</genre>
+      <price>19.99</price>
+   </book>
+   <book>
+      <title>The Great Gatsby</title>
+      <author>F. Scott Fitzgerald</author>
+      <genre>Fiction</genre>
+      <price>10.99</price>
+   </book>
+   <book>
+      <title>1984</title>
+      <author>George Orwell</author>
+      <genre>Dystopian</genre>
+      <price>14.99</price>
+   </book>
+</books>
+Internal DTD (Embedded within the XML Document):
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books [ <!ELEMENT books (book+)>
+<!ELEMENT book (title, author, genre, price)>
+   <!ELEMENT title (#PCDATA)>
+      <!ELEMENT author (#PCDATA)>
+         <!ELEMENT genre (#PCDATA)>
+            <!ELEMENT price (#PCDATA)>
+               ]>
+               <books>
+                  <book>
+                     <title>Harry Potter and the Sorcerer's Stone</title>
+                     <author>J.K. Rowling</author>
+                     <genre>Fantasy</genre>
+                     <price>19.99</price>
+                  </book>
+                  <book>
+                     <title>The Great Gatsby</title>
+                     <author>F. Scott Fitzgerald</author>
+                     <genre>Fiction</genre>
+                     <price>10.99</price>
+                  </book>
+                  <book>
+                     <title>1984</title>
+                     <author>George Orwell</author>
+                     <genre>Dystopian</genre>
+                     <price>14.99</price>
+                  </book>
+               </books>
+               External DTD (Separate File - books.dtd):
+               <!ELEMENT books (book+)>
+                  <!ELEMENT book (title, author, genre, price)>
+                     <!ELEMENT title (#PCDATA)>
+                        <!ELEMENT author (#PCDATA)>
+                           <!ELEMENT genre (#PCDATA)>
+                              <!ELEMENT price (#PCDATA)>
+                                 XML Document Referencing the External DTD:
+                                 <?xml version="1.0" encoding="UTF-8"?>
+                                 <!DOCTYPE books SYSTEM "books.dtd">
+                                 <books>
+                                    <book>
+                                       <title>Harry Potter and the Sorcerer's Stone</title>
+                                       <author>J.K. Rowling</author>
+                                       <genre>Fantasy</genre>
+                                       <price>19.99</price>
+                                    </book>
+                                    <book>
+                                       <title>The Great Gatsby</title>
+                                       <author>F. Scott Fitzgerald</author>
+                                       <genre>Fiction</genre>
+                                       <price>10.99</price>
+                                    </book>
+                                    <book>
+                                       <title>1984</title>
+                                       <author>George Orwell</author>
+                                       <genre>Dystopian</genre>
+                                       <price>14.99</price>
+                                    </book>
+                                 </books>
+
+Output:
++-------------------------------------------+------------------------+------------+-------+
+|                  Title                    |        Author          |   Genre    | Price |
++-------------------------------------------+------------------------+------------+-------+
+| Harry Potter and the Sorcerer's Stone     | J.K. Rowling           | Fantasy    | 19.99 |
+| The Great Gatsby                          | F. Scott Fitzgerald    | Fiction    | 10.99 |
+| 1984                                      | George Orwell          | Dystopian  | 14.99 |
++-------------------------------------------+------------------------+------------+-------+
+
+Learning Outcomes:
+1. Gain an understanding of the XML document structure and how to store and
+organize data effectively.
+2. Learn how to create and implement a DTD to define and validate XML document
+structure.
+3. Learn how to ensure that the data in the XML document adheres to the required
+structure through validation.
+4. Understand how to integrate internal and external DTDs in XML documents.
+
+Conclusion:
+This exercise has demonstrated how to create an XML document to represent data about
+books and how to use a DTD to define and validate the structure of that document.
+Validating XML ensures that the document is correctly structured and the data is consistent
+with the expected format. Mastery of XML and DTDs is crucial for any application that deals
+with structured data, as it enables data storage, transmission, and validation.

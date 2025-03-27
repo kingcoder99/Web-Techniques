@@ -1,0 +1,114 @@
+Experiment 9: Interactive Elements Using AJAX:.
+
+Aim:
+Develop a feature where: A dropdown list dynamically updates its options based on another dropdown
+selection using AJAX.
+
+Tools Used:
+• HTML5: To structure the web page and create dropdown lists.
+• CSS3: For basic styling of the page and elements.
+• JavaScript (AJAX): To make asynchronous requests and update the second dropdown
+without reloading the page.
+• PHP or a mock API: For the backend, which provides data to update the second
+dropdown based on the first dropdown's selection.
+
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdown with AJAX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        #loading {
+            display: none;
+            font-size: 16px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Dropdown Example</h1>
+
+    <label for="category">Select Category: </label>
+    <select id="category" onchange="fetchSubcategories()">
+        <option value="">Select a Category</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+        <option value="books">Books</option>
+    </select>
+    <label for="subcategory">Select Subcategory: </label>
+    <select id="subcategory">
+        <option value="">Select a Subcategory</option>
+    </select>
+    <p id="loading">Loading...</p>
+    <script>
+        function fetchSubcategories() {
+            const category = document.getElementById('category').value;
+            const subcategoryDropdown = document.getElementById('subcategory');
+            const loadingMessage = document.getElementById('loading');
+
+            if (category) {
+                loadingMessage.style.display = 'block';
+                subcategoryDropdown.innerHTML = '<option>Loading...</option>';
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', `https://api.example.com/subcategories?category=${category}`, true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const subcategories = JSON.parse(xhr.responseText);
+                        subcategoryDropdown.innerHTML = '<option value="">Select a Subcategory</option>';
+
+                        subcategories.forEach(subcategory => {
+                            const option = document.createElement('option');
+                            option.value = subcategory.id;
+                            option.textContent = subcategory.name;
+                            subcategoryDropdown.appendChild(option);
+                        });
+                    } else {
+                        subcategoryDropdown.innerHTML = '<option>Error loading subcategories</option>';
+                    }
+                    loadingMessage.style.display = 'none';
+                };
+                xhr.onerror = function () {
+                    subcategoryDropdown.innerHTML = '<option>Error loading subcategories</option>';
+                    loadingMessage.style.display = 'none';
+                };
+                xhr.send();
+            } else {
+                subcategoryDropdown.innerHTML = '<option value="">Select a Subcategory</option>';
+            }
+        }
+    </script>
+</body>
+</html>
+
+OUTPUT:
+
+Code:
+
+Dynamic Dropdown Example(h1)
+Select Category: Select a Category(in box)   Select Subcategory: Select a Subcategory(in box)
+
+Learning Outcomes:
+• Understand the process of making AJAX requests to update dropdown lists dynamically based on user
+selections.
+• Be able to implement interactive dropdowns that update based on user input, improving the user
+experience of forms or web applications
+
+Conclusion:
+This feature demonstrates how to use AJAX to dynamically update a dropdown list based on another dropdown's selection.
+This type of interactivity is common in modern web applications, especially when dealing with forms, such as selecting a
+country to populate states or cities, or filtering a product list based on categories.

@@ -1,0 +1,95 @@
+Experiment 8: Create an Asynchronous Web Application.
+
+Aim:
+Build a web page where: A button fetches the current weather information from a server or mock API using an
+AJAX request & Display the fetched data dynamically without reloading the page.
+
+Tools Used:
+• HTML5: For structuring the web page.
+• CSS3: For styling the page.
+• JavaScript (AJAX): For making asynchronous requests to fetch data from an API and
+updating the webpage dynamically.
+
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #weather {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            display: none;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Current Weather Information</h1>
+    <button id="getWeatherBtn">Get Weather</button>
+    <div id="weather">
+        <h2>Weather in <span id="city"></span></h2>
+        <p>Temperature: <span id="temp"></span> °C</p>
+        <p>Humidity: <span id="humidity"></span>%</p>
+        <p>Condition: <span id="condition"></span></p>
+    </div>
+    <p id="error"></p>
+    <script>
+        document.getElementById('getWeatherBtn').addEventListener('click', fetchWeather);
+        function fetchWeather() {
+            const xhr = new XMLHttpRequest();
+            const city = 'London'; // You can change this to any city
+            // Mock API URL for weather
+            const apiURL =
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`;
+            xhr.open('GET', apiURL, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    // Display weather data
+                    document.getElementById('city').textContent = data.name;
+                    document.getElementById('temp').textContent = data.main.temp;
+                    document.getElementById('humidity').textContent = data.main.humidity;
+                    document.getElementById('condition').textContent = data.weather[0].description;
+                    document.getElementById('weather').style.display = 'block';
+                    document.getElementById('error').textContent = '';
+                } else if (xhr.readyState == 4) {
+                    document.getElementById('error').textContent = 'Failed to fetch weather data.';
+                    document.getElementById('weather').style.display = 'none';
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
+
+OUTPUT:
+
+Code:
+Current Weather Information(H1)
+Get Weather(in box)
+
+Learning Outcomes:
+• Gain a deep understanding of how to send and receive asynchronous requests using
+AJAX.
+• Be able to implement AJAX-based dynamic content fetching and updating.
+• Improve proficiency in JavaScript and its interaction with external data sources (APIs).
+
+Conclusion:
+In this task, we demonstrated how to use AJAX to fetch weather information from an external or mock API and
+display it dynamically on the web page without the need for a full page reload. This technique is fundamental
+in modern web development, as it allows web pages to function smoothly with real-time data.

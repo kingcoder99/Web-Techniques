@@ -1,0 +1,138 @@
+Experiment 7: Transform XML with XSLT.
+
+Aim:
+a)Create an XSLT file to transform the XML document of books into an HTML table.
+
+Tools Used:
+• Text Editor: Any text editor (e.g., Visual Studio Code, Sublime Text, Notepad++) to
+write the XML, XSLT, and HTML files.
+• Web Browser: Modern web browsers (Google Chrome, Mozilla Firefox, etc.) to test
+XML and XSLT transformation.
+• XSLT Processor: A browser that supports XSLT or an online XSLT processor.
+
+Code:
+XML Document (books.xml):
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <title>Harry Potter and the Sorcerer's Stone</title>
+        <author>J.K. Rowling</author>
+        <genre>Fantasy</genre>
+        <price>19.99</price>
+    </book>
+    <book>
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+        <genre>Fiction</genre>
+        <price>10.99</price>
+    </book>
+    <book>
+        <title>1984</title>
+        <author>George Orwell</author>
+        <genre>Dystopian</genre>
+        <price>14.99</price>
+    </book>
+</books>
+XSLT File (books.xsl):
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XSLT File to transform XML data into HTML table -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <!-- Template to match the root element "books" -->
+    <xsl:template match="/books">
+        <html>
+
+        <head>
+            <title>Book List</title>
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                    text-align: left;
+                    border: 1px solid #ddd;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                }
+            </style>
+        </head>
+
+        <body>
+            <h1>Book List</h1>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Price</th>
+                </tr>
+                <!-- Apply template to each book element -->
+                <xsl:apply-templates select="book" />
+            </table>
+        </body>
+
+        </html>
+    </xsl:template>
+    <!-- Template to match each "book" element and extract data -->
+    <xsl:template match="book">
+        <tr>
+            <td><xsl:value-of select="title" /></td>
+            <td><xsl:value-of select="author" /></td>
+            <td><xsl:value-of select="genre" /></td>
+            <td><xsl:value-of select="price" /></td>
+        </tr>
+    </xsl:template>
+</xsl:stylesheet>
+Linking the XML and XSLT:
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books>
+    <book>
+        <title>Harry Potter and the Sorcerer's Stone</title>
+        <author>J.K. Rowling</author>
+        <genre>Fantasy</genre>
+        <price>19.99</price>
+    </book>
+    <book>
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+        <genre>Fiction</genre>
+        <price>10.99</price>
+    </book>
+    <book>
+        <title>1984</title>
+        <author>George Orwell</author>
+        <genre>Dystopian</genre>
+        <price>14.99</price>
+    </book>
+</books>
+
+Output:
+
++------------------------------------------+-----------------------+-------------+--------+
+|                  Title                   |        Author         |    Genre    |  Price |
++------------------------------------------+-----------------------+-------------+--------+
+| Harry Potter and the Sorcerer's Stone    | J.K. Rowling          | Fantasy     |  19.99 |
+| The Great Gatsby                         | F. Scott Fitzgerald   | Fiction     |  10.99 |
+| 1984                                     | George Orwell         | Dystopian   |  14.99 |
++------------------------------------------+-----------------------+-------------+--------+
+
+Learning Outcomes:
+1. Understanding XSLT: Learn how to use XSLT to transform an XML document into a
+different format (HTML).
+2. Separation of Concerns: Understand how XSLT separates data (XML) from its
+presentation (HTML).
+3. HTML Table Creation: Learn how to create structured HTML content (like a table)
+dynamically using XML data and XSLT.
+
+Conclusion:
+In this exercise, you have learned how to use XSLT to transform an XML document
+containing book data into an HTML table. This demonstrates the power of XSLT in separating
+data from presentation, making it a versatile tool in web development. By mastering XSLT,
+you can dynamically present structured data in various formats based on the needs of the
+application.
